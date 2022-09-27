@@ -9,8 +9,8 @@ app = FastAPI()
 
 
 @app.get("/")
-def read_root():
-    s = get_connection("zzz")
+def read_root(q: Union[str, None] = None):
+    s = get_connection(q)
     return {"Hello": str(s)}
 
 @app.get("/items/{item_id}")
